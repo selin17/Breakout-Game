@@ -146,9 +146,9 @@ export default class Game {
                 this.paddle.x -= (this.paddle.width - oldWidth) / 2;
             }
 
-            // Cyan: Top yavaşlatma (ALT LİMİT EKLENDİ)
+            // Cyan: Top yavaşlatma
             if (p.type === "slow") {
-                // Topun hızı orijinalin %40'ının altına düşmesin (sakız gibi olmaması için)
+                // Topun hızı orijinalin %40'ının altına düşmesin
                 if (this.ball.speedMultiplier > 0.4) {
                     this.ball.speedMultiplier *= 0.8;
                 }
