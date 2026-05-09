@@ -92,8 +92,4 @@ Breakout-Game/
 
 ---
 
-# 👩‍💻 Developer
-
-Selin KEKLİK  
-Computer Engineering Student  
 Spring 2026
