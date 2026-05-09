@@ -127,7 +127,7 @@ export default class Game {
     });
 
     // =========================
-    // POWER-UP UPDATE (Eşya Toplama)
+    // POWER-UP
     // =========================
     this.powerUps.forEach(p => {
         p.y += p.dy; // Aşağı düşme hızı
@@ -176,7 +176,7 @@ export default class Game {
             this.state = "gameover";
             this.ui.gameOver = true;
         } else {
-            this.ball.reset(); // Sadece topu sıfırla, oyuna devam et
+            this.ball.reset(); 
         }
     }
 
