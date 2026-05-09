@@ -5,7 +5,7 @@ const ctx = canvas.getContext("2d");
 const game = new Game(canvas, ctx);
 
 document.addEventListener("keydown", (e) => {
-    // 🚀 SPACE CONTROL
+    // SPACE CONTROL
     if (e.code === "Space") {
         if (game.state === "menu") {
             game.started = true;
@@ -17,18 +17,18 @@ document.addEventListener("keydown", (e) => {
         }
     }
 
-    // ⬅️ MOVE LEFT
+    // MOVE LEFT
     if (e.key === "ArrowLeft") game.paddle.dx = -game.paddle.speed;
 
-    // ➡️ MOVE RIGHT
+    // MOVE RIGHT
     if (e.key === "ArrowRight") game.paddle.dx = game.paddle.speed;
 
-    // 🔄 RESTART
+    // RESTART
     if (e.key.toLowerCase() === "r") {
         game.restart();
     }
 
-    // ⏸ PAUSE
+    // PAUSE
     if (e.key === "Escape") {
         if (game.state === "playing" || game.state === "paused") {
             game.paused = !game.paused;

@@ -87,18 +87,18 @@ export default class Game {
     }
 
    update() {
-    // ❌ Oyun oynanmıyorsa veya duraklatılmışsa hiçbir şey yapma
+   
     if (this.state !== "playing" || this.paused) return;
 
-    // UI animasyonlarını güncelle (skor yükselmesi, uçan yazılar vb.)
+  
     this.ui.update();
 
-    // Player ve Top hareketleri
+    
     this.paddle.move();
     this.ball.move(this.paddle);
 
     // =========================
-    // 🔥 COMBO TIMER SYSTEM
+    // COMBO TIMER SYSTEM
     // =========================
     if (this.comboTimer > 0) this.comboTimer--;
     else {
@@ -107,7 +107,7 @@ export default class Game {
     }
 
     // =========================
-    // 🧱 BRICK COLLISION (Tuğla Çarpışma)
+    // BRICK COLLISION (Tuğla Çarpışma)
     // =========================
     this.bricks.forEach(b => {
         if (b.active && circleRectCollision(this.ball, b)) {
@@ -127,7 +127,7 @@ export default class Game {
     });
 
     // =========================
-    // 🎁 POWER-UP UPDATE (Eşya Toplama)
+    // POWER-UP UPDATE (Eşya Toplama)
     // =========================
     this.powerUps.forEach(p => {
         p.y += p.dy; // Aşağı düşme hızı
@@ -139,14 +139,14 @@ export default class Game {
             p.x > this.paddle.x &&
             p.x < this.paddle.x + this.paddle.width
         ) {
-            // 🟢 Yeşil: Raket büyütme
+            // Yeşil: Raket büyütme
             if (p.type === "paddle") {
                 const oldWidth = this.paddle.width;
                 this.paddle.width += 30;
                 this.paddle.x -= (this.paddle.width - oldWidth) / 2;
             }
 
-            // 🔵 Cyan: Top yavaşlatma (ALT LİMİT EKLENDİ)
+            // Cyan: Top yavaşlatma (ALT LİMİT EKLENDİ)
             if (p.type === "slow") {
                 // Topun hızı orijinalin %40'ının altına düşmesin (sakız gibi olmaması için)
                 if (this.ball.speedMultiplier > 0.4) {
@@ -154,7 +154,7 @@ export default class Game {
                 }
             }
 
-            // 🔴 Kırmızı: Ekstra Can
+            // Kırmızı: Ekstra Can
             if (p.type === "life") {
                 this.ui.lives++;
             }
@@ -167,7 +167,7 @@ export default class Game {
     this.powerUps = this.powerUps.filter(p => !p.collected && p.y < this.canvas.height);
 
     // =========================
-    // 💀 LOSE CONDITION (Can Kaybı / Game Over)
+    // LOSE CONDITION (Can Kaybı / Game Over)
     // =========================
     if (this.ball.y > this.canvas.height) {
         this.ui.lives--;
@@ -181,7 +181,7 @@ export default class Game {
     }
 
     // =========================
-    // 🏁 LEVEL COMPLETE / WIN CHECK
+    // LEVEL COMPLETE / WIN CHECK
     // =========================
     if (this.bricks.every(b => !b.active)) {
         if (this.level >= 3) {

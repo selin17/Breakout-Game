@@ -66,7 +66,7 @@ export default class UI {
             ctx.fillText(t.text, t.x, t.y);
         });
 
-        // ❌ GAME OVER
+        // GAME OVER
         if (this.gameOver) {
             ctx.save();
 
@@ -74,7 +74,7 @@ export default class UI {
 
             ctx.textAlign = "center";
 
-            // 💥 ARCADE EFFECT
+            // ARCADE EFFECT
             ctx.shadowColor = "red";
             ctx.shadowBlur = 25;
 
@@ -95,7 +95,7 @@ export default class UI {
             ctx.restore();
         }
 
-        // 🏆 ARCADE WIN SCREEN
+        // ARCADE WIN SCREEN
         if (this.win) {
             ctx.fillStyle = "rgba(0,0,0,0.7)";
             ctx.fillRect(0, 0, w, ctx.canvas.height);
